@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — carried exactly from the prototype (reference/*.html).
+  The metaphor: a well-kept file on your property. Form paper, ruled
+  ledger lines, carbon copies, rubber stamps. Austere chrome, warm contents.
+*/
+@theme {
+  --color-paper: #e9ecf1;
+  --color-card: #ffffff;
+  --color-ink: #141c28;
+  --color-ink-2: #4a5768;
+  --color-ink-3: #778394;
+  --color-pen: #1b45d6;
+  --color-pen-soft: #e8ecfc;
+  --color-carbon: #f5e7bc;
+  --color-carbon-line: #e0cb92;
+  --color-carbon-ink: #4e3f17;
+  --color-stamp: #a8241f;
+  --color-rule: #c8cfda;
+  --color-ok: #186b47;
+
+  --font-display: var(--font-archivo);
+  --font-body: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+
+  --container-page: 1080px;
+  --container-measure: 680px;
+}
+
+/* Everything here lives in Tailwind's own cascade layers, so ordinary
+   utility classes (text-white, etc.) always win over these base/utility
+   defaults regardless of source order — unlayered rules would otherwise
+   beat every Tailwind utility no matter what. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  a {
+    color: var(--color-pen);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-pen);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Data, numerals, labels: always tabular so figures don't jitter. */
+  .tabular-figures {
+    font-feature-settings: "tnum" 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* A ruled, ledger-paper background for hero/masthead surfaces. Static by
+     default; the "drawing" entrance is layered on in the motion pass and
+     only ever plays once, guarded by prefers-reduced-motion. */
+  .bg-ruled {
+    background-image: linear-gradient(var(--color-rule) 1px, transparent 1px);
+    background-size: 100% 36px;
+  }
+
+  /* Very fine paper grain — CSS-generated, no image request. Barely
+     perceptible on purpose; if it reads as an effect it is too strong. */
+  .bg-grain {
+    position: relative;
+  }
+  .bg-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Page transitions: a short cross-fade with a slight vertical offset —
+   never a full-screen wipe. Only applies where the browser actually
+   fires a view transition (TransitionLink feature-detects and respects
+   prefers-reduced-motion before ever calling startViewTransition). */
+@media not (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root) {
+    animation: page-fade-out 180ms ease-in both;
+  }
+  ::view-transition-new(root) {
+    animation: page-fade-in 220ms ease-out both;
+  }
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Section heading mask reveal — clip-path only, opacity is never touched,
+   so no letterform is ever fully invisible/unreadable, only progressively
+   unclipped. A plain CSS animation (not JS/IntersectionObserver-gated),
+   so it starts the instant the browser paints the element — bounded to a
+   fixed ~550ms regardless of hydration timing, which is what keeps it
+   from ever risking LCP or leaving a heading unreadable on a slow device. */
+@keyframes heading-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+/* The rubber stamp's impact entrance — a fast scale-down with a slight
+   over-rotation settling into place. Neutralised automatically by the
+   prefers-reduced-motion override above (animation-duration: 0.01ms). */
+@keyframes stamp-impact {
+  0% {
+    opacity: 0;
+    transform: rotate(-14deg) scale(1.8);
+  }
+  60% {
+    opacity: 0.95;
+    transform: rotate(-4deg) scale(0.97);
+  }
+  100% {
+    opacity: 0.9;
+    transform: rotate(-4deg) scale(1);
+  }
+}
