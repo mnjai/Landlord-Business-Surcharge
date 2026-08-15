@@ -15,6 +15,8 @@ export interface GuideFrontmatter {
   published: boolean;
   /** Editorial ordering — lower first. Content-editable, not derived from the filesystem. */
   order: number;
+  /** Curated "read next" slugs, editorial priority order. Falls back to the next articles by `order` if omitted. */
+  related?: string[];
 }
 
 export interface GuideArticleSummary extends GuideFrontmatter {
@@ -42,7 +44,15 @@ export function getAllGuideArticles(): GuideArticleSummary[] {
 }
 
 export function getRelatedArticles(currentSlug: string, count = 3): GuideArticleSummary[] {
-  return getAllGuideArticles()
-    .filter((a) => a.slug !== currentSlug)
-    .slice(0, count);
+  const all = getAllGuideArticles();
+  const current = all.find((a) => a.slug === currentSlug);
+  const others = all.filter((a) => a.slug !== currentSlug);
+
+  if (current?.related?.length) {
+    const bySlug = new Map(others.map((a) => [a.slug, a]));
+    const curated = current.related.map((slug) => bySlug.get(slug)).filter((a): a is GuideArticleSummary => !!a);
+    if (curated.length > 0) return curated.slice(0, count);
+  }
+
+  return others.slice(0, count);
 }
