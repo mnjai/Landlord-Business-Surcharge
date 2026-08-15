@@ -19,9 +19,10 @@ export function Hero() {
         <Eyebrow>Property management for owners abroad</Eyebrow>
         <RevealHeading
           as="h1"
-          className="mb-5 max-w-[15ch] font-display text-[clamp(34px,7vw,62px)] leading-[1] font-extrabold tracking-[-0.028em] text-balance"
+          className="mb-5 max-w-[23ch] font-display text-[clamp(30px,6.2vw,58px)] leading-[1.03] font-extrabold tracking-[-0.026em] text-balance"
         >
-          You own property in Trinidad. You <span className="text-pen">don&apos;t live there.</span>
+          Do you own property in Trinidad and <span className="text-pen">live abroad?</span> Here&apos;s what
+          changed on January 1st.
         </RevealHeading>
         <p className="mb-7 max-w-[54ch] text-[clamp(16.5px,2.3vw,19px)] text-ink-2">
           Since 1 January 2026 every landlord collecting rent on Trinidad &amp; Tobago property owes the Landlord
