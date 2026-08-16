@@ -2,8 +2,9 @@ export const SITE = {
   name: "Ebenezer Real Estate Services",
   legalName: "Ebenezer Real Estate Services Ltd",
   tagline: "The only Trinidad & Tobago agency built for owners who don't live here.",
-  phoneDisplay: "+1 868 299 2295",
-  phoneE164: "18682992295",
+  // TESTING NUMBER — swap back to the real one before final deployment.
+  phoneDisplay: "+1 868 499 5143",
+  phoneE164: "18684995143",
   email: "ebenezerres@gmail.com",
   // TODO: confirm production domain before launch.
   url: "https://www.ebenezerres.com",
