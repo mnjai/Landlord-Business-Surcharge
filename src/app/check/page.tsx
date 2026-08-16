@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Do you owe the Landlord Business Surcharge? Free check",
     description:
-      "Six questions. Get your quarterly liability, registration cost, and penalty exposure — built for owners who don't live in Trinidad.",
+      "Six questions. Get your quarterly liability, registration cost, and penalty exposure — built for owners who don't live in Trinidad & Tobago.",
     url: "/check",
   },
 };
@@ -26,7 +26,7 @@ const faqJsonLd = {
       name: "Does living abroad exempt me from the Landlord Business Surcharge?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. The obligation attaches to the property, not to your address — a property in Trinidad creates the same duty whether the owner lives in Trinidad, New York, Toronto or London.",
+        text: "No. The obligation attaches to the property, not to your address — a property in Trinidad & Tobago creates the same duty whether the owner lives in Trinidad & Tobago, New York, Toronto or London.",
       },
     },
     {
@@ -47,7 +47,7 @@ const faqJsonLd = {
     },
     {
       "@type": "Question",
-      name: "Can someone register on my behalf if I can't travel to Trinidad?",
+      name: "Can someone register on my behalf if I can't travel to Trinidad & Tobago?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Yes. Registration through an agent is expressly contemplated — the required documents include an authorisation letter for exactly that case, alongside the agent's own identification.",
@@ -72,7 +72,7 @@ export default function CheckPage() {
           </h1>
           <p className="max-w-[56ch] text-[clamp(15px,2.4vw,17px)] text-ink-2">
             Six questions. You&apos;ll get your quarterly liability, what registration costs, and what&apos;s
-            accruing if you haven&apos;t registered yet. Built for owners who don&apos;t live in Trinidad.
+            accruing if you haven&apos;t registered yet. Built for owners who don&apos;t live in Trinidad &amp; Tobago.
           </p>
         </header>
 

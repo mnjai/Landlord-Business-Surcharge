@@ -17,7 +17,7 @@ export interface ManagedProperty {
 export const MANAGED_PROPERTIES: ManagedProperty[] = [
   {
     id: "prop-1",
-    area: "[Area, Trinidad]",
+    area: "[Area, Trinidad & Tobago]",
     typeLabel: "[Property type — beds/baths]",
     priceTTD: 8_500,
     priceKind: "rent",
@@ -25,7 +25,7 @@ export const MANAGED_PROPERTIES: ManagedProperty[] = [
   },
   {
     id: "prop-2",
-    area: "[Area, Trinidad]",
+    area: "[Area, Trinidad & Tobago]",
     typeLabel: "[Office space — sq ft]",
     priceTTD: 14_000,
     priceKind: "rent",
@@ -33,7 +33,7 @@ export const MANAGED_PROPERTIES: ManagedProperty[] = [
   },
   {
     id: "prop-3",
-    area: "[Area, Trinidad]",
+    area: "[Area, Trinidad & Tobago]",
     typeLabel: "[Property type — beds/baths]",
     priceTTD: 2_400_000,
     priceKind: "sale",

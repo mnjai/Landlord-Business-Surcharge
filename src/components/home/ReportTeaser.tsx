@@ -28,7 +28,7 @@ export function ReportTeaser() {
             </p>
             <Link
               href="/report"
-              className="inline-block bg-pen px-[18px] py-[11px] font-display text-sm font-bold text-white hover:bg-[#1638AD]"
+              className="inline-block bg-pen px-[18px] py-[11px] font-display text-sm font-bold text-white hover:bg-[#8F4000]"
             >
               See a full sample report
             </Link>

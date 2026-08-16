@@ -24,7 +24,7 @@ export default function AboutPage() {
             </h1>
             <p className="text-[clamp(16.5px,2.2vw,19px)] text-ink-2">
               {SITE.legalName} began because the same request kept arriving from the same kind of person — someone
-              who grew up around a Trinidad property, moved away, and eventually inherited or kept the
+              who grew up around a Trinidad & Tobago property, moved away, and eventually inherited or kept the
               responsibility for it without the tools to manage it properly from a distance. Everything here is
               built around that one relationship.
             </p>

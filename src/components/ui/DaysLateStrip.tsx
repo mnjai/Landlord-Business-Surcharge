@@ -35,7 +35,7 @@ export function DaysLateStrip({ className, caption }: { className?: string; capt
       )}
     >
       <span className="font-mono text-[22px] leading-none font-semibold tabular-figures text-stamp">
-        {days === null ? "—" : <CountUp value={days} />}
+        {days === null ? "—" : <CountUp value={days} durationMs={1400} />}
       </span>
       <span className="text-sm text-carbon-ink">
         {caption ?? "days since the registration deadline of 30 June 2026. Penalties accrue in six-month blocks."}

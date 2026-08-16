@@ -18,7 +18,7 @@ export function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
-        "inline-block bg-pen px-[18px] py-[11px] font-display text-sm font-bold whitespace-nowrap text-white transition-colors hover:bg-[#1638AD] motion-reduce:transition-none",
+        "inline-block bg-pen px-[18px] py-[11px] font-display text-sm font-bold whitespace-nowrap text-white transition-colors hover:bg-[#8F4000] motion-reduce:transition-none",
         className,
       )}
     >

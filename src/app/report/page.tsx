@@ -73,7 +73,7 @@ export default function ReportPage() {
               <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2 border-b-2 border-ink pb-4">
                 <div>
                   <b className="block font-display text-lg font-extrabold">Property condition report</b>
-                  <span className="font-mono text-[12px] text-ink-3">[Property address, Trinidad]</span>
+                  <span className="font-mono text-[12px] text-ink-3">[Property address, Trinidad &amp; Tobago]</span>
                 </div>
                 <span className="font-mono text-[11px] tracking-[0.09em] text-ink-3">PREPARED 04.07.2026</span>
               </div>

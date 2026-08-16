@@ -9,7 +9,7 @@ const CREDENTIALS: { label: string; value: string; todo?: boolean }[] = [
   { label: "Company registration", value: "[company no.]", todo: true },
   { label: "Professional indemnity", value: "[insurer & cover]", todo: true },
   { label: "AML compliance officer", value: "[named officer]", todo: true },
-  { label: "Office", value: "[street address, Trinidad]" },
+  { label: "Office", value: "[street address, Trinidad & Tobago]" },
   { label: "Telephone", value: SITE.phoneDisplay },
   { label: "Trading since", value: "[year]" },
 ];
@@ -21,7 +21,7 @@ export function ProofWall({ headingLevel = "h2" as const }: { headingLevel?: "h1
       <Container className="py-16">
         <Eyebrow>Who you&apos;re dealing with</Eyebrow>
         <SectionHeading as={headingLevel}>
-          Trinidad has no real estate licensing regime yet. So we show our papers.
+          Trinidad &amp; Tobago has no real estate licensing regime yet. So we show our papers.
         </SectionHeading>
         <SectionDek>
           The Real Estate Agents Act is passed but not yet proclaimed, which means anyone can call themselves an

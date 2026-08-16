@@ -8,7 +8,7 @@ const HOME_OPTIONS = [
   { href: "/check?home=US", label: "United States" },
   { href: "/check?home=CA", label: "Canada" },
   { href: "/check?home=UK", label: "United Kingdom" },
-  { href: "/check?home=TT", label: "Trinidad" },
+  { href: "/check?home=TT", label: "Trinidad & Tobago" },
   { href: "/check?home=OT", label: "Elsewhere" },
 ];
 
@@ -21,7 +21,7 @@ export function Hero() {
           as="h1"
           className="mb-5 max-w-[23ch] font-display text-[clamp(30px,6.2vw,58px)] leading-[1.03] font-extrabold tracking-[-0.026em] text-balance"
         >
-          Do you own property in Trinidad and <span className="text-pen">live abroad?</span> Here&apos;s what
+          Do you own property in Trinidad &amp; Tobago and <span className="text-pen">live abroad?</span> Here&apos;s what
           changed on January 1st.
         </RevealHeading>
         <p className="mb-7 max-w-[54ch] text-[clamp(16.5px,2.3vw,19px)] text-ink-2">

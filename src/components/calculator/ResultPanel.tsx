@@ -269,8 +269,8 @@ export function ResultPanel({
               ))}
             </ul>
             <p className="mt-2.5 text-[14.5px] text-carbon-ink">
-              District offices will not accept it. Someone has to stand in that line in Trinidad, and then keep
-              filing every quarter after that.
+              District offices will not accept it. Someone has to stand in that line in Trinidad &amp; Tobago, and
+              then keep filing every quarter after that.
             </p>
           </div>
         </div>

@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach Ebenezer Real Estate Services by WhatsApp, phone or email. We answer across Trinidad, US and UK hours — WhatsApp gets to us fastest.",
+    "Reach Ebenezer Real Estate Services by WhatsApp, phone or email. We answer across Trinidad & Tobago, US and UK hours — WhatsApp gets to us fastest.",
   alternates: { canonical: "/contact" },
 };
 
@@ -22,8 +22,8 @@ export default function ContactPage() {
             Talk to someone who&apos;s awake when you are
           </h1>
           <p className="mb-8 text-[clamp(16.5px,2.2vw,19px)] text-ink-2">
-            Trinidad runs four hours behind London and level with New York for half the year. We answer across all
-            three, and WhatsApp gets to us fastest.
+            Trinidad &amp; Tobago runs four hours behind London and level with New York for half the year. We answer
+            across all three, and WhatsApp gets to us fastest.
           </p>
         </Measure>
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
                   Our primary channel — fastest reply, and where most conversations with owners abroad actually
                   happen.
                 </p>
-                <WhatsAppButton message="Hi — I own property in Trinidad and live abroad.">
+                <WhatsAppButton message="Hi — I own property in Trinidad & Tobago and live abroad.">
                   Message us on WhatsApp
                 </WhatsAppButton>
               </div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 </div>
                 <div className="sm:col-span-2">
                   <h2 className="mb-1.5 font-display text-base font-bold tracking-[-0.01em]">Office</h2>
-                  <p className="text-sm text-ink-2">[street address, Trinidad]</p>
+                  <p className="text-sm text-ink-2">[street address, Trinidad &amp; Tobago]</p>
                 </div>
               </div>
             </div>

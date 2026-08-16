@@ -11,8 +11,8 @@
   --color-ink: #141c28;
   --color-ink-2: #4a5768;
   --color-ink-3: #778394;
-  --color-pen: #1b45d6;
-  --color-pen-soft: #e8ecfc;
+  --color-pen: #bf5700;
+  --color-pen-soft: #fbe8d9;
   --color-carbon: #f5e7bc;
   --color-carbon-line: #e0cb92;
   --color-carbon-ink: #4e3f17;
@@ -84,8 +84,8 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Numbered markers for MDX ordered lists — decimal-leading-zero, pen-blue,
-     matching the ledger aesthetic. Counter mechanics live here in plain CSS;
+  /* Numbered markers for MDX ordered lists — decimal-leading-zero, in the
+     pen accent color, matching the ledger aesthetic. Counter mechanics live here in plain CSS;
      the ::before's visual styling is set via Tailwind classes on the <ol>. */
   .mdx-ol {
     counter-reset: mdxstep;

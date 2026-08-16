@@ -13,12 +13,12 @@ export function ContactSection() {
               Talk to someone who&apos;s awake when you are
             </h2>
             <p className="mb-8 max-w-[52ch] text-[17px] text-[#B9C3D2]">
-              Trinidad runs four hours behind London and level with New York for half the year. We answer across
-              all three, and WhatsApp gets to us fastest.
+              Trinidad &amp; Tobago runs four hours behind London and level with New York for half the year. We
+              answer across all three, and WhatsApp gets to us fastest.
             </p>
             <div className="mb-5.5 flex flex-wrap gap-2.5">
               <WhatsAppButton
-                message="Hi — I own property in Trinidad and live abroad."
+                message="Hi — I own property in Trinidad & Tobago and live abroad."
                 className="px-6 py-3.5 text-[15px]"
               >
                 Message us on WhatsApp
