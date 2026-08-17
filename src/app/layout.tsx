@@ -6,7 +6,7 @@ import { UtilityBar } from "@/components/chrome/UtilityBar";
 import { Header } from "@/components/chrome/Header";
 import { Footer } from "@/components/chrome/Footer";
 import { MarginRuler } from "@/components/chrome/MarginRuler";
-import { SITE } from "@/lib/site";
+import { CJA, SITE } from "@/lib/site";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -32,14 +32,14 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — property management for owners who live abroad | Trinidad & Tobago`,
-    template: `%s | ${SITE.name}`,
+    default: `${CJA.tradingName} & ${SITE.name} — property management for owners who live abroad | Trinidad & Tobago`,
+    template: `%s | ${CJA.tradingName} & ${SITE.name}`,
   },
   description:
-    "The Trinidad & Tobago agency built for owners who don't live here. Landlord Business Surcharge registration, quarterly filing, rent collection, inspections and reporting for overseas property owners.",
+    `Two companies for owners who don't live in Trinidad & Tobago: ${CJA.tradingName} (US) holds your file and handles compliance and reporting; ${SITE.name} (T&T) is the licensed agency that lets, collects and inspects on the ground.`,
   openGraph: {
     type: "website",
-    siteName: SITE.name,
+    siteName: `${CJA.tradingName} & ${SITE.name}`,
     locale: "en_TT",
   },
   twitter: {
@@ -47,7 +47,24 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+/**
+ * Two entities, two JSON-LD types. CJA is an Organization providing
+ * administrative services — never described as a real estate agent, since
+ * a US company cannot lawfully act as one in T&T, and never described as
+ * filing with the Inland Revenue Division. Ebenezer is the RealEstateAgent,
+ * licensed and FIU-registered on the ground.
+ */
+const cjaJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: CJA.legalName,
+  telephone: CJA.phoneDisplay,
+  url: SITE.url,
+  description:
+    "Compliance administration, Landlord Business Surcharge filing coordination and reporting for Trinidad & Tobago property owners who live abroad. Not a real estate agent, does not file with the Inland Revenue Division, and does not hold client funds.",
+};
+
+const ebenezerJsonLd = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: SITE.legalName,
@@ -58,7 +75,7 @@ const jsonLd = {
     name: "Trinidad and Tobago",
   },
   description:
-    "Property management, Landlord Business Surcharge compliance and reporting for Trinidad & Tobago owners who live abroad.",
+    `Licensed, FIU-registered real estate agency handling letting, rent collection, IRD filing, inspections and title work in Trinidad & Tobago, working alongside ${CJA.tradingName} for owners who live abroad.`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -68,7 +85,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable} h-full`}
     >
       <body className="bg-grain flex min-h-full flex-col antialiased">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(cjaJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ebenezerJsonLd) }} />
         <CurrencyProvider>
           <a
             href="#main"

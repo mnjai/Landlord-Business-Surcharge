@@ -12,6 +12,12 @@ const HOME_OPTIONS = [
   { href: "/check?home=OT", label: "Elsewhere" },
 ];
 
+const PROPERTY_STATUS_OPTIONS = [
+  { href: "/services/absentee-landlord-service", label: "It's rented" },
+  { href: "/services/idle-property-care", label: "It's standing empty" },
+  { href: "/services#title-estate", label: "It's complicated — inherited, disputed, or I'm not sure" },
+];
+
 export function Hero() {
   return (
     <div className="bg-card bg-ruled border-b border-rule">
@@ -30,7 +36,24 @@ export function Hero() {
           it, and everything else the property needs while you&apos;re not here to see it.
         </p>
 
-        <DaysLateStrip className="mb-10 max-w-[640px]" />
+        <DaysLateStrip className="mb-7 max-w-[640px]" />
+
+        <div className="mb-10 max-w-[640px] border border-rule bg-card p-5 sm:p-6">
+          <p className="mb-2.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-ink-3 uppercase">
+            Is the property rented, or standing empty?
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {PROPERTY_STATUS_OPTIONS.map((opt) => (
+              <Link
+                key={opt.href}
+                href={opt.href}
+                className="border border-rule px-[15px] py-2.5 font-mono text-[13px] text-ink-2 transition-colors hover:border-pen hover:text-pen motion-reduce:transition-none"
+              >
+                {opt.label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
         {/* Interaction before persuasion: question one of the calculator, live, right in the hero. */}
         <div className="-mb-px grid grid-cols-1 items-center gap-6 bg-ink p-7 text-white sm:grid-cols-[1.1fr_1fr] sm:p-[30px_28px]">

@@ -21,7 +21,7 @@ const PROBLEMS = [
     n: "03",
     title: "Inherited property that's stuck",
     body: "Deed never transferred, estate never administered, a house standing empty for years. It can't be rented, sold or insured properly until the paperwork is straightened out.",
-    href: "#services",
+    href: "#title-estate",
     label: "How we unstick it",
   },
 ];

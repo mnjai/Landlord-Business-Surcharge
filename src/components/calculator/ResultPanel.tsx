@@ -13,6 +13,7 @@ import { Stamp } from "@/components/ui/Stamp";
 import { Ledger, LedgerRow, LedgerTotal } from "@/components/ui/Ledger";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { CountUp } from "@/components/ui/CountUp";
+import { SITE } from "@/lib/site";
 
 function Amount({ ttd, alarm }: { ttd: number; alarm?: boolean }) {
   const { primary, indicative } = useFormattedAmount(ttd);
@@ -305,18 +306,37 @@ export function ResultPanel({
         <p className="mb-4.5 max-w-[50ch] text-[14.5px] text-[#B9C3D2]">
           {abroad
             ? "We register you with the BIR, hand-deliver the forms, keep you on the quarterly calendar, and send you a statement you can hand straight to your accountant at home."
-            : "We handle registration, the quarterly filing calendar, and the records that back up every figure."}
+            : `You're based in Trinidad & Tobago, so this is ${SITE.name}'s territory directly — the licensed agency on the ground handles your registration, filing calendar and records.`}
         </p>
         <div className="flex flex-wrap gap-2.5">
-          <WhatsAppButton message="Hi — I used the LBS check on your site. I'd like help with my registration.">
-            Message us on WhatsApp
-          </WhatsAppButton>
-          <a
-            href="/contact"
-            className="inline-block border border-[#4A5768] px-6 py-3.5 font-display text-[15px] font-bold text-white hover:border-white"
-          >
-            Book a call — US, UK &amp; T&amp;T hours
-          </a>
+          {abroad ? (
+            <>
+              <WhatsAppButton message="Hi — I used the LBS check on your site. I'd like help with my registration.">
+                Message us on WhatsApp
+              </WhatsAppButton>
+              <a
+                href="/contact"
+                className="inline-block border border-[#4A5768] px-6 py-3.5 font-display text-[15px] font-bold text-white hover:border-white"
+              >
+                Book a call — US, UK &amp; T&amp;T hours
+              </a>
+            </>
+          ) : (
+            <>
+              <WhatsAppButton
+                phone={SITE.phoneE164}
+                message="Hi — I used the LBS check on your site. I'm in Trinidad & Tobago and would like help with my registration."
+              >
+                WhatsApp {SITE.name}
+              </WhatsAppButton>
+              <a
+                href={`tel:+${SITE.phoneE164}`}
+                className="inline-block border border-[#4A5768] px-6 py-3.5 font-display text-[15px] font-bold text-white hover:border-white"
+              >
+                Call {SITE.phoneDisplay}
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>

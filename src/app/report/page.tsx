@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, Measure } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { PlaceholderImage } from "@/components/ui/PlaceholderImage";
@@ -164,7 +165,11 @@ export default function ReportPage() {
           </h2>
           <p className="mx-auto mb-6 max-w-[48ch] text-[15px] text-[#B9C3D2]">
             No exceptions and no upgrade tier for better reporting — it&apos;s the same file whether your property
-            rents for two thousand a month or twenty.
+            rents for two thousand a month or twenty. For a property standing empty, the same openness applies to{" "}
+            <Link href="/standard" className="border-b border-white/60 pb-px text-white no-underline hover:border-white">
+              the inspection standard
+            </Link>
+            .
           </p>
           <WhatsAppButton message="Hi — I'd like to talk about getting this kind of reporting on my property.">
             Message us on WhatsApp

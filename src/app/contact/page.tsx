@@ -3,12 +3,12 @@ import { Container, Measure } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ContactHours } from "@/components/home/ContactHours";
-import { SITE } from "@/lib/site";
+import { CJA, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach Ebenezer Real Estate Services by WhatsApp, phone or email. We answer across Trinidad & Tobago, US and UK hours — WhatsApp gets to us fastest.",
+    `Reach ${CJA.tradingName} on a US number for calls and WhatsApp, or ${SITE.name} directly in Trinidad & Tobago. We answer across Trinidad & Tobago, US and UK hours — WhatsApp gets to us fastest.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -42,6 +42,20 @@ export default function ContactPage() {
               </div>
 
               <div className="border-b border-rule p-5.5">
+                <h2 className="mb-1.5 font-display text-lg font-bold tracking-[-0.01em]">Call a US number</h2>
+                <p className="mb-4 text-sm text-ink-2">
+                  {CJA.tradingName} holds your file and is reachable on a number in your own country — not a
+                  Trinidad &amp; Tobago long-distance call.
+                </p>
+                <a
+                  href={`tel:+${CJA.phoneE164}`}
+                  className="font-mono text-lg font-semibold text-ink hover:text-pen"
+                >
+                  {CJA.phoneDisplay}
+                </a>
+              </div>
+
+              <div className="border-b border-rule p-5.5">
                 <h2 className="mb-1.5 font-display text-lg font-bold tracking-[-0.01em]">Book a call</h2>
                 <p className="mb-4 text-sm text-ink-2">
                   Tell us a couple of times that work for you and your time zone — we&apos;ll confirm by WhatsApp
@@ -55,26 +69,47 @@ export default function ContactPage() {
                 </WhatsAppButton>
               </div>
 
-              <div className="grid grid-cols-1 gap-5 p-5.5 sm:grid-cols-2">
-                <div>
-                  <h2 className="mb-1.5 font-display text-base font-bold tracking-[-0.01em]">Telephone</h2>
-                  <p className="font-mono text-sm text-ink-2">{SITE.phoneDisplay}</p>
-                </div>
-                <div>
-                  <h2 className="mb-1.5 font-display text-base font-bold tracking-[-0.01em]">Email</h2>
-                  <p className="font-mono text-sm text-ink-2">{SITE.email}</p>
-                </div>
-                <div className="sm:col-span-2">
-                  <h2 className="mb-1.5 font-display text-base font-bold tracking-[-0.01em]">Office</h2>
-                  <p className="text-sm text-ink-2">[street address, Trinidad &amp; Tobago]</p>
+              <div className="p-5.5">
+                <h2 className="mb-1.5 font-display text-base font-bold tracking-[-0.01em]">
+                  Prefer to reach {SITE.name} in Trinidad &amp; Tobago directly?
+                </h2>
+                <p className="mb-4 text-sm text-ink-2">
+                  For letting, inspections, title work or anything that needs someone on the ground, {SITE.name} is
+                  the FIU-registered agency that does it — reachable directly, not only through {CJA.tradingName}.
+                </p>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <h3 className="mb-1.5 font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink-3 uppercase">
+                      WhatsApp / telephone
+                    </h3>
+                    <a
+                      href={`tel:+${SITE.phoneE164}`}
+                      className="font-mono text-sm text-ink-2 hover:text-pen"
+                    >
+                      {SITE.phoneDisplay}
+                    </a>
+                  </div>
+                  <div>
+                    <h3 className="mb-1.5 font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink-3 uppercase">
+                      Email
+                    </h3>
+                    <p className="font-mono text-sm text-ink-2">{SITE.email}</p>
+                  </div>
+                  <div className="sm:col-span-2">
+                    <h3 className="mb-1.5 font-mono text-[10.5px] font-semibold tracking-[0.12em] text-ink-3 uppercase">
+                      Office
+                    </h3>
+                    <p className="text-sm text-ink-2">[street address, Trinidad &amp; Tobago]</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <p className="text-[12.5px] leading-[1.6] text-ink-3">
-              {SITE.legalName} is a licensed real estate agency, not a firm of tax practitioners or attorneys. We
-              work alongside T&amp;T accountants and attorneys who sign and file. Nothing on this page is tax or
-              legal advice.
+              {CJA.legalName} and {SITE.legalName} are two independent companies working to a defined split — see
+              our <a href="/about" className="border-b border-ink-3 pb-px no-underline hover:text-pen">who we are</a>{" "}
+              page for the detail. Neither is a firm of tax practitioners or attorneys; filings are reviewed and
+              signed by a licensed T&amp;T professional. Nothing on this page is tax or legal advice.
             </p>
           </div>
 

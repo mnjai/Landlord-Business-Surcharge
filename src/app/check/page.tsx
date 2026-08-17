@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Calculator } from "@/components/calculator/Calculator";
-import { SITE } from "@/lib/site";
+import { CJA, SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Do you owe the Landlord Business Surcharge? Free check",
@@ -63,6 +63,8 @@ export default function CheckPage() {
       <Container className="max-w-[820px]!">
         <header className="mb-7 border-b-2 border-ink pb-3.5">
           <div className="mb-4.5 flex flex-wrap gap-x-3.5 gap-y-1.5 font-mono text-[11px] font-medium tracking-[0.14em] text-ink-2 uppercase">
+            <span>{CJA.legalName}</span>
+            <span>&amp;</span>
             <span>{SITE.legalName}</span>
             <span className="text-pen">FIU Registered Agency</span>
             <span>Trinidad &amp; Tobago</span>
@@ -85,9 +87,9 @@ export default function CheckPage() {
           Landlord Business Surcharge introduced by the Finance Act 2025 — 2.5% on the first TT$20,000 of rent
           collected each quarter and 3.5% above that, with a one-time TT$2,500 registration fee. A narrow set of
           exemptions exists that this tool does not attempt to assess, and penalty application is ultimately the
-          BIR&apos;s determination. {SITE.legalName} is a licensed real estate agency, not a firm of tax
-          practitioners; we work alongside T&amp;T accountants and attorneys who sign and file. Confirm your own
-          position with a Trinidad &amp; Tobago tax practitioner or attorney before you file.
+          BIR&apos;s determination. Neither {CJA.legalName} nor {SITE.legalName} is a firm of tax practitioners;
+          filings are reviewed and signed by a licensed T&amp;T professional. Confirm your own position with a
+          Trinidad &amp; Tobago tax practitioner or attorney before you file.
         </p>
       </Container>
     </div>

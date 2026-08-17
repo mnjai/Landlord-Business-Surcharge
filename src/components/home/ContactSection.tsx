@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { SITE } from "@/lib/site";
+import { CJA, SITE } from "@/lib/site";
 import { ContactHours } from "./ContactHours";
 
 export function ContactSection() {
@@ -13,8 +13,9 @@ export function ContactSection() {
               Talk to someone who&apos;s awake when you are
             </h2>
             <p className="mb-8 max-w-[52ch] text-[17px] text-[#B9C3D2]">
-              Trinidad &amp; Tobago runs four hours behind London and level with New York for half the year. We
-              answer across all three, and WhatsApp gets to us fastest.
+              {CJA.tradingName} is reachable on a US number for calls and WhatsApp — no long-distance dialling to Trinidad
+              &amp; Tobago. {SITE.name}, the licensed T&amp;T agency, answers directly too. We cover all three time
+              zones, and WhatsApp gets to us fastest.
             </p>
             <div className="mb-5.5 flex flex-wrap gap-2.5">
               <WhatsAppButton
@@ -24,14 +25,15 @@ export function ContactSection() {
                 Message us on WhatsApp
               </WhatsAppButton>
               <a
-                href="/contact"
+                href={`tel:+${CJA.phoneE164}`}
                 className="inline-block border border-[#4A5768] px-6 py-3.5 font-display text-[15px] font-bold text-white hover:border-white"
               >
-                Book a call
+                Call {CJA.phoneDisplay}
               </a>
             </div>
             <p className="text-[13px] text-[#8E9BB0]">
-              {SITE.legalName} · FIU-registered agency · {SITE.phoneDisplay} · {SITE.email}
+              {CJA.legalName} · US · {CJA.phoneDisplay} &nbsp;·&nbsp; {SITE.legalName} · FIU-registered · T&amp;T ·{" "}
+              {SITE.phoneDisplay}
             </p>
           </div>
 

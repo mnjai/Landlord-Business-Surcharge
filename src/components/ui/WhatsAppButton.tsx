@@ -7,14 +7,17 @@ export function WhatsAppButton({
   message,
   className,
   children = "WhatsApp us",
+  phone,
 }: {
   message?: string;
   className?: string;
   children?: ReactNode;
+  /** E.164 number to message. Defaults to CJA's — pass SITE.phoneE164 for Ebenezer-specific contexts. */
+  phone?: string;
 }) {
   return (
     <Link
-      href={whatsappUrl(message)}
+      href={whatsappUrl(message, phone)}
       target="_blank"
       rel="noopener noreferrer"
       className={clsx(
